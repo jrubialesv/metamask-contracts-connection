@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MetaMask Integration Example</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+
+    h1, h2, h3 {
+        color: #333;
+    }
+
+    button {
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #e65c54;
+    }
+
+    #status, #account, #value {
+        color: #555;
+        margin-left: 5px;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="number"]:focus {
+        border-color: #ff6f61;
+        outline: none;
+    }
+
+    #spinner {
+        margin-top: 10px;
+    }
+
+    #value {
+        color: #555;
+        font-size: large;
+        margin-left: 5px;
+        margin-top: 10px; /* Added margin-top for spacing */
+    }
+
+    #row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #columns {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+</style>
+<body>
+    <h1>MetaMask Integration Example</h1>
+
+    <div id="image">
+        <img src="metamask.png" alt="MetaMask Logo" width="600px">
+    </div>
+
+    <button id="connectButton">Connect to MetaMask</button>
+    <h3 id="status"></h3>
+    <p id="account"></p>
+
+    <h2 id="contract_function" hidden>Storage Contract Functions</h2>
+    
+    <div id="row">
+    <div id="columns">
+        <button id="contractFunctionStore" hidden>Store value</button>
+        <input id="valueInput" type="number" placeholder="Value" hidden>
+        <div id="spinner"></div>
+
+    </div>
+
+    <br>
+    <div id="columns">
+        <div>
+            <button id="contractFunctionRetrieve" hidden>Retrieve value</button>
+            <p id="value"></p>
+        </div>
+
+    </div>
+    </div>
+    <script src="main.js" type="application/javascript"></script>
+</body>
+</html>
