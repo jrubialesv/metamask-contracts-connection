@@ -38,14 +38,14 @@
         margin-left: 5px;
     }
 
-    input[type="number"] {
+    input {
         padding: 10px;
         margin: 5px 0;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
 
-    input[type="number"]:focus {
+    input:focus {
         border-color: #ff6f61;
         outline: none;
     }
@@ -81,29 +81,90 @@
         <img src="metamask.png" alt="MetaMask Logo" width="600px">
     </div>
 
-    <button id="connectButton">Connect to MetaMask</button>
+    <button id="storageContractButton">Storage Contract</button>
+    <button id="vendingMachineContractButton">Vending Machine Contract</button>
+
+    <script>
+        // if button is clicked, assign the script to simple_contract.js
+        document.getElementById('storageContractButton').onclick = function() {
+            var script = document.createElement('script');
+            script.src = 'simple_contract.js';
+            document.head.appendChild(script);
+            document.getElementById('connectButton').hidden = false;
+            document.getElementById('storageContractButton').hidden = true;
+            document.getElementById('vendingMachineContractButton').hidden = true;
+        }
+
+        // if button is clicked, assign the script to vending_machine.js
+        document.getElementById('vendingMachineContractButton').onclick = function() {
+            var script = document.createElement('script');
+            script.src = 'vending_machine.js';
+            document.head.appendChild(script);
+            document.getElementById('connectButton').hidden = false;
+            document.getElementById('vendingMachineContractButton').hidden = true;
+            document.getElementById('storageContractButton').hidden = true;
+        }
+    </script>
+
+    <button id="connectButton" hidden>Connect to MetaMask</button>
     <h3 id="status"></h3>
     <p id="account"></p>
 
-    <h2 id="contract_function" hidden>Storage Contract Functions</h2>
+    <h2 id="contractStorageFunction" hidden>Storage Contract Functions</h2>
     
     <div id="row">
-    <div id="columns">
-        <button id="contractFunctionStore" hidden>Store value</button>
-        <input id="valueInput" type="number" placeholder="Value" hidden>
-        <div id="spinner"></div>
+        <div id="columns">
+            <button id="contractFunctionStore" hidden>Store value</button>
+            <input id="valueInput" type="number" placeholder="Value" hidden>
+            <div id="spinner"></div>
+        </div>
 
+        <div id="columns" style="margin-left: 20px;">
+            <div>
+                <button id="contractFunctionRetrieve" hidden>Retrieve value</button>
+                <p id="value"></p>
+            </div>
+
+        </div>
     </div>
 
-    <br>
-    <div id="columns">
-        <div>
-            <button id="contractFunctionRetrieve" hidden>Retrieve value</button>
-            <p id="value"></p>
+    <h2 id="contractVendingFunction" hidden>Vending Machine Contract Functions</h2>
+
+    <div id="row">
+
+        <div id="columns">
+            <button id="contractFunctionRetrieveOwner" hidden>Owner Address</button>
+            <p id="owner"></p>
+        </div>
+
+
+        <div id="columns" style="margin-left: 20px;">
+            <button id="contractFunctionRetrieveOwnerPurchased" hidden>Owner Purchased</button>
+            <input id="valueInputAddress" type="string" placeholder="Value" hidden>
+            <p id="purchased"></p>
+            <div id="spinner"></div>
+        </div>
+
+        <div id="columns" style="margin-left: 20px;">
+            <button id="contractFunctionRestock" hidden>Restock</button>
+            <input id="valueInputRestock" type="number" placeholder="Value" hidden>
+            <div id="spinner"></div>
+        </div>
+    </div>
+    
+    <div id="row">
+
+        <div id="columns">
+            <button id="contractFunctionPurchase" hidden>Purchase 1</button>
+        </div>
+
+        <div id="columns" style="margin-left: 20px;">
+            <button id="contractFunctionMultiplePurchase" hidden>Purchase many</button>
+            <input id="valueInputMultiplePurchase" type="number" placeholder="Value" hidden>
+            <div id="spinner"></div>
         </div>
 
     </div>
-    </div>
-    <script src="main.js" type="application/javascript"></script>
+    
 </body>
 </html>
