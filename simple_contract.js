@@ -5,7 +5,7 @@ const account = document.getElementById('account');
 const contractFunctionStoreButton = document.getElementById('contractFunctionStore');
 const valueInput = document.getElementById('valueInput');
 const contractFunctionRetrieveButton = document.getElementById('contractFunctionRetrieve');
-const contractFunction = document.getElementById('contract_function');
+const contractFunction = document.getElementById('contractStorageFunction');
 
 async function connectMetaMask() {
 	if (typeof window.ethereum !== 'undefined') {
