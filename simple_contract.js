@@ -72,7 +72,7 @@ async function contractFunctionStore() {
 	if (value === '') {
 		console.error("Value is empty");
 		// display the button light red for 1 second
-		contractFunctionStoreButton.style.backgroundColor = 'lightcoral';
+		contractFunctionStoreButton.style.backgroundColor = 'red';
 		// change placeholder text to Value is empty+
 		valueInput.placeholder = "VALUE IS EMPTY";
 		setTimeout(() => {
